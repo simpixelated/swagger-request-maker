@@ -5,26 +5,25 @@ import Panel from 'react-bootstrap/lib/Panel';
 
 import Header from '../components/Header';
 import Schemes from '../components/Schemes';
-import MethodBar from '../components/MethodBar';
+import MethodList from './MethodList';
 import style from './App.css';
 
 const Paths = ({ paths }) => (
   <div>
-    {_.map(paths, (path, url) => {
-      const methods = _.pick(path, ['get', 'put', 'post', 'delete']);
-      return (
-        <Panel>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">{url}</Panel.Title>
-          </Panel.Heading>
-          <Panel.Body>
-            {_.map(methods, ({ summary }, method) => (
-              <MethodBar method={method} summary={summary} />
-            ))}
-          </Panel.Body>
-        </Panel>
-      );
-    })}
+    {_.map(paths, (path, url) => (
+      <Panel>
+        <Panel.Heading>
+          <Panel.Title componentClass="h3">{url}</Panel.Title>
+        </Panel.Heading>
+        <Panel.Body>
+          <MethodList
+            methods={_.pick(path, ['get', 'put', 'post', 'delete'])}
+            url={url}
+            parameters={path.parameters}
+          />
+        </Panel.Body>
+      </Panel>
+    ))}
   </div>
 );
 
