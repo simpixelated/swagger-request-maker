@@ -8,7 +8,7 @@ import Schemes from '../components/Schemes';
 import MethodList from './MethodList';
 import style from './App.css';
 
-const Paths = ({ paths }) => (
+const Paths = ({ paths, parameters }) => (
   <div>
     {_.map(paths, (path, url) => (
       <Panel>
@@ -16,11 +16,7 @@ const Paths = ({ paths }) => (
           <Panel.Title componentClass="h3">{url}</Panel.Title>
         </Panel.Heading>
         <Panel.Body>
-          <MethodList
-            methods={_.pick(path, ['get', 'put', 'post', 'delete'])}
-            url={url}
-            parameters={path.parameters}
-          />
+          <MethodList path={path} url={url} parameters={parameters} />
         </Panel.Body>
       </Panel>
     ))}
@@ -36,7 +32,7 @@ class App extends React.Component {
 
         <Header host={swagger.host} {...swagger.info} />
         <Schemes schemes={swagger.schemes} />
-        <Paths paths={swagger.paths} />
+        <Paths paths={swagger.paths} parameters={swagger.parameters} />
 
         <div>Debug to show access to swagger JSON:</div>
         <pre className={style.SwaggerDebug}>

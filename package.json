@@ -36,7 +36,10 @@
     "webpack-httpolyglot-server": "^0.2.0"
   },
   "dependencies": {
+    "json-schema-ref-parser": "^5.0.3",
     "lodash": "^4.17.10",
+    "mobx": "^5.0.3",
+    "mobx-react": "^5.2.3",
     "react": "16.4.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "16.4.0",

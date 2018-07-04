@@ -1,10 +1,16 @@
 import React from 'react';
-
+import ValueDetail from './ValueDetail';
 import Table from './Table';
 
 const ResponseList = ({ responses }) => {
-  const rows = _.map(responses, ({ code, description }) => {
-    return [code, description];
+  const rows = _.map(responses, ({ code, schema, description, examples }, i) => {
+    return [
+      code,
+      <div key={`description-${i}`}>
+        <p>{description}</p>
+        <ValueDetail example={examples && examples['application/json']} schema={schema} />
+      </div>,
+    ];
   });
   return (
     <div>

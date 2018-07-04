@@ -1,5 +1,4 @@
 import React from 'react';
-
 import TableBS from 'react-bootstrap/lib/Table';
 
 const Table = ({ headers, rows }) => (
