@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/Button';
 import Table from './Table';
 import ValueDetail from './ValueDetail';
 import ParameterName from './ParameterName';
@@ -26,7 +27,10 @@ const ParametersList = ({ parameters }) => {
   });
   return (
     <div>
-      <div>Parameters</div>
+      <p className="clearfix">
+        Parameters
+        <Button className="pull-right">Try it out</Button>
+      </p>
       <Table headers={['Name', 'Description']} rows={rows} />
     </div>
   );
