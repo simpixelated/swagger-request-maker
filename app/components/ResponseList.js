@@ -8,7 +8,11 @@ const ResponseList = ({ responses }) => {
       code,
       <div key={`description-${i}`}>
         <p>{description}</p>
-        <ValueDetail example={examples && examples['application/json']} schema={schema} />
+        <ValueDetail
+          example={examples && examples['application/json']}
+          schema={schema}
+          id={`${code}-value`}
+        />
       </div>,
     ];
   });

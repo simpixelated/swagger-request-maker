@@ -2,12 +2,12 @@ import React from 'react';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 
-const ValueDetail = ({ example, schema }) => {
+const ValueDetail = ({ example, schema, id }) => {
   if (!example && !schema) {
     return null;
   }
   return (
-    <Tabs defaultActiveKey={example ? 1 : 2}>
+    <Tabs defaultActiveKey={example ? 1 : 2} id={id}>
       {example && (
         <Tab eventKey={1} title="Example Value">
           <pre>{JSON.stringify(example, null, 4)}</pre>

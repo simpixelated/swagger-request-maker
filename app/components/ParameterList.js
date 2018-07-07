@@ -9,7 +9,7 @@ const ParametersList = ({ parameters }) => {
     let valueDetail;
     if (rest.schema) {
       const { example, ...schema } = rest.schema;
-      valueDetail = <ValueDetail example={example} schema={schema} />;
+      valueDetail = <ValueDetail example={example} schema={schema} id={`${rest.name}-value`} />;
     }
     return [
       <ParameterName

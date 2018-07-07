@@ -7,8 +7,10 @@ const Table = ({ headers, rows }) => (
       <tr>{_.map(headers, header => <th key={header}>{header}</th>)}</tr>
     </thead>
     <tbody>
-      {_.map(rows, (row, i) => (
-        <tr key={`row-${i}`}>{_.map(row, value => <td key={value}>{value}</td>)}</tr>
+      {_.map(rows, (row, trIndex) => (
+        <tr key={`row-${trIndex}`}>
+          {_.map(row, (value, tdIndex) => <td key={`row-${trIndex}-${tdIndex}`}>{value}</td>)}
+        </tr>
       ))}
     </tbody>
   </TableBS>

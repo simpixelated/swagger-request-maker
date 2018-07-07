@@ -1,27 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
-import Panel from 'react-bootstrap/lib/Panel';
 
 import Header from '../components/Header';
 import Schemes from '../components/Schemes';
-import MethodList from './MethodList';
+import PathList from '../components/PathList';
 import style from './App.css';
-
-const Paths = ({ paths, parameters }) => (
-  <div>
-    {_.map(paths, (path, url) => (
-      <Panel>
-        <Panel.Heading>
-          <Panel.Title componentClass="h3">{url}</Panel.Title>
-        </Panel.Heading>
-        <Panel.Body>
-          <MethodList path={path} url={url} parameters={parameters} />
-        </Panel.Body>
-      </Panel>
-    ))}
-  </div>
-);
 
 class App extends React.Component {
   render() {
@@ -32,7 +15,7 @@ class App extends React.Component {
 
         <Header host={swagger.host} {...swagger.info} />
         <Schemes schemes={swagger.schemes} />
-        <Paths paths={swagger.paths} parameters={swagger.parameters} />
+        <PathList paths={swagger.paths} />
 
         <div>Debug to show access to swagger JSON:</div>
         <pre className={style.SwaggerDebug}>
